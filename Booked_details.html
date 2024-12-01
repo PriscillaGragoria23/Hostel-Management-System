@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Booked details(online)</title>
+        <style>
+            {% load static %}
+            h1{
+                background-color: lightsalmon;
+                text-align: center;
+            }
+
+            body{
+                background-image: url("{% static '/adminbk.jpg' %}");
+            }
+            nav table td {
+                padding: 0 20px; /* Adds 20px padding to the left and right of each menu item */
+                text-align: center;
+                font-family: fantasy;
+            }
+
+        }
+
+         </style>
+    </head>
+    <body>
+        <center>
+            <header><H1>BOOKED DETAILS</H1></header><br>
+            <nav>
+          <table>
+
+            <tr><td style="text-align: center;font-family: fantasy;"><a href="{% url 'rooms' %}">ROOM INFO</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'updation' %}">PROFILE UPDATE</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'bookeddetails' %}">BOOKED DETAILS</a></td></tr>
+          </table>
+    </nav><br>
+            <button style="background-color:lavenderblush;"><a href="{% url 'onlinebooking' %}">BACK</a></button><hr>
+        </center>
+    <table border="10"  cellpadding="10px" align="center">
+        <thead>
+           <tr>
+               <td>Reg.no</td>
+               <td>Name</td>
+               <td>Age</td>
+               <td>Father Name</td>
+               <td>Occupation</td>
+               <td>Mobile</td>
+               <td>Email</td>
+               <td>Stay period</td>
+               <td>Date of Joining</td>
+               <td>Rooms</td>
+               <td>Food</td>
+               <td>Ac</td>
+               <td>Amount</td>
+               <td>Payment Mode</td>
+               <td>Proof</td>
+               <td>Id number</td>
+           </tr>
+        </thead>
+        <tbody>
+        {% for x in booked %}
+        <tr>
+            <td>{{x.regno}}</td>
+            <td>{{x.nameon}}</td>
+            <td>{{x.age}}</td>
+            <td>{{x.fname}}</td>
+            <td>{{x.occ}}</td>
+            <td>{{x.mob}}</td>
+            <td>{{x.email}}</td>
+            <td>{{x.stay_period}}</td>
+            <td>{{x.doj}}</td>
+            <td>{{x.rooms}}</td>
+            <td>{{x.food}}</td>
+            <td>{{x.ac}}</td>
+            <td>{{x.amt}}</td>
+            <td>{{x.pay_mode}}</td>
+            <td>{{x.PROOF}}</td>
+            <td>{{x.idnum}}</td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </body>
+</html>

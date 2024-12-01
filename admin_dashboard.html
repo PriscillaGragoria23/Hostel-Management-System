@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>ADMIN DASHBOARD</title>
+    </head> <style>
+         {% load static %}
+        h1{
+            background-color: lightsalmon;
+            text-align: center;
+        }
+        nav table{
+            display:inline;
+            margin-right: 20px;
+            
+            
+        }
+        img{
+            width: 250px;
+            height: 200px;
+            padding: 50px;
+        }
+        body{
+            background-image: url("{% static '/adminbk.jpg' %}");
+        }
+        
+     </style>
+    <body>
+        
+        
+        <center><header><h1>ADMIN DASHBOARD</h1></header></center>
+    <button style="background-color:lavenderblush;"><a href="{% url 'logindetails' %}">BACK To Login</a></button><br><br><hr>
+        <center><nav>
+            <table>
+                <tr><td><img src="{% static 'onpic.jpg' %}"></td>
+                    <td><img src="{% static 'offpic.jpg' %}"></td>
+                    </tr>
+                <tr><td style="text-align: center;font-family: fantasy;"><a href="{% url 'onlinebooking' %}">ONLINE BOOKINGS</td>
+                    <td style="text-align: center;font-family: fantasy;"><a href="{% url 'offlinebooking' %}">OFFLINE BOOKINGS</td>
+
+
+            </table>
+            </nav></center>
+            
+        </body>
+        </html>

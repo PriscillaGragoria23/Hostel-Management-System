@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Online Bookings</title>
+    </head>
+    <style>
+        {% load static %}
+        h1{
+            background-color: lightsalmon;
+            text-align: center;
+        }
+        nav table{
+            display: inline;
+            margin-right: 20px;
+        }
+        img{
+            width: 250px;
+            height: 200px;
+            padding: 50px;
+        }
+        body{
+            background-image: url("{% static '/adminbk.jpg' %}");
+        }
+     </style>
+    <body>
+        <center><h1>ONLINE BOOKINGS</h1><hr>
+            <button style="background-color:lavenderblush;"><a href="{% url 'admindashboard' %}">BACK To DASHBOARD</a></button>
+        <nav>
+          <table>
+            <tr><td><img src="{% static 'allotment pic.jpg' %}"></td>
+                <td><img src="{% static 'propic.jpg' %}"></td>
+                <td><img src="{% static 'bookimg.jpg' %}"></td></tr>
+            <tr><td style="text-align: center;font-family: fantasy;"><a href="{% url 'rooms' %}">ROOM INFO</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'updation' %}">PROFILE UPDATE</td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'bookeddetails' %}">BOOKED DETAILS</a></td></tr>
+          </table>
+    </nav></center>
+</body>
+</html>

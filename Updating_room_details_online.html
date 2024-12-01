@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <style>
+            {% load static %}
+            h1{
+                background-color: lightsalmon;
+            }
+            body{
+                background-image: url("{% static '/adminbk.jpg' %}");
+            }
+            table {
+
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+
+        }
+        nav table td {
+                padding: 20px; /* Adds 20px padding to the left and right of each menu item */
+                text-align: center;
+                font-family: fantasy;
+            }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+        }
+        th {
+            background-color: lightblue;
+        }
+        h2 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+
+         </style>
+    </head>
+    <body>
+
+        <center><header>
+            <h1>ROOM DETAILS ONLINE</h1>
+
+        </header>
+        <nav>
+          <table>
+
+            <tr><td style="text-align: center;font-family: fantasy;"><a href="{% url 'rooms' %}">ROOM INFO</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'updation' %}">PROFILE UPDATE</td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'bookeddetails' %}">BOOKED DETAILS</a></td></tr>
+          </table>
+    </nav></center>
+        <center><button style="background-color:lavenderblush;"><a href="{% url 'onlinebooking' %}">BACK</a></button><hr>
+<form method="post">
+    {% csrf_token %}
+    <center>
+        <table>
+            <thead>
+                <tr>
+                    <td colspan="8">
+                        <h2><u>ROOM AVAILABILITY & PRICING</u></h2>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Room Type</th>
+                    <th>AC/Non-AC</th>
+                    <th>Total Rooms</th>
+                    <th>Booked Rooms</th>
+
+                    <th>Price per Month</th>
+                    <th>Food Cost</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select id="room_type" name="room_type">
+                            <option value="Single Bed">Single Bed</option>
+                            <option value="Double Bed">Double Bed</option>
+                            <option value="Four Bed">Four Bed</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select id="ac_nonac" name="ac_nonac">
+                            <option value="AC">AC</option>
+                            <option value="Non-AC">Non-AC</option>
+                        </select>
+                    </td>
+                    <td><input type="number" id="total_rooms" name="total_rooms" placeholder="Total rooms"></td>
+                    <td><input type="number" id="booked_rooms" name="booked_rooms" placeholder="Booked rooms"></td>
+
+                    <td><input type="number" id="price_per_month" name="price_per_month" placeholder="Price per month"></td>
+                    <td><input type="number" id="food_cost" name="food_cost" placeholder="Food cost"></td>
+                    </tr>
+            </tbody>
+        </table>
+
+        <br><br><br>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Clear">
+    </center>
+</form>
+        </center></body></html>

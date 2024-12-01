@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>Registration</title>
+        <style>
+            {% load static %}
+           h1{
+            background-color: lightsalmon;
+        } 
+        h3{
+            
+            width: fit-content;
+            height: fit-content;
+            margin: center;
+        }
+        nav{
+            display: inline
+        }
+        body
+        {
+            background-image: url("{% static '/img2.jpg' %}");
+
+        form {
+
+background: rgba(157, 155, 155, 0.8);
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+width: 300px;
+margin: auto;
+}
+        </style>
+        
+    </head>
+
+    <body>
+        <header>
+            <center>
+                <h1>Register Form</h1><br>
+                 </center>
+            
+        </header><hr>
+
+        <form method ="POST">
+            {% csrf_token %}
+            <center>
+              
+            <table><tr><td style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">NAME:</td><td><input type="text" placeholder="Enter Name" name="regname" id="regname"></td></tr>
+              
+              <tr><td style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">EMAIL:</td><td><input type="text" placeholder="Enter Email" name="email" id="email"></td></tr>
+              <tr><td style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">MOBILE:</td><td><input type="number" placeholder="Enter number" name="num" id="num"></td></tr>
+                <tr><td style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">USERNAME:</td><td><input type="text" placeholder="Enter Name" name="uname" id="uname"></td></tr>
+              <tr><td style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">PASSWORD:</td><td><input type="password" placeholder="Enter Password" name="psw" id="psw"></td></tr>
+              <tr><td style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">CONFRIM-PASSFORD:</td><td><input type="password" placeholder="Confrim Password" name="psw_repeat" id="psw_repeat"></td></tr>
+              <tr><td style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">ROLE:</td><td><select id="role" name="role"><option >choose the role</option>
+                <option  value="user">User</option>
+                <option value="admin">Admin</option></select></td></tr>
+            </table><br><br>
+
+            <center><input type="submit" value="submit">
+            <input type="reset" value="reset">
+            </center>
+        </form></center>
+    <script>
+        window.onload = function() {
+            var messages = document.getElementById('messages');
+            if (messages) {
+                alert(messages.innerText);
+            }
+        };
+    </script>
+
+    <!-- Hidden div to hold messages for JavaScript to read -->
+    {% if messages %}
+        <div id="messages" style="display:none;">
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    </body>
+
+</html>

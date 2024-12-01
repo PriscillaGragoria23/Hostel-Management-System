@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Offline Bookings</title>
+    </head>
+    <style>
+        {% load static %}
+        h1{
+            background-color: lightsalmon;
+            text-align: center;
+        }
+        nav{
+            display: inline;
+            margin-right: 20px;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+            padding: 50px;
+        }
+        body{
+            background-image: url("{% static '/adminbk.jpg' %}");
+        }
+        
+     </style>
+    <body>
+        <center>
+            <HEADER>
+                <h1>OFFLINE BOOKINGS</h1>
+            </HEADER><hr>
+            <button style="background-color:lavenderblush;"><a href="{% url 'admindashboard' %}">BACK To DASHBOARD</a></button>
+            <nav>
+            <table>
+                <tr><td><img src="{% static 'rfform.jpg' %}"></td>
+                    <td><img src="{% static 'availpic.jpg' %}"></td>
+                    <td><img src="{% static 'mge pic.jpg' %}"></td>
+                    <td><img src="{% static 'onpic.jpg' %}"></td>
+                    <td><img src="{% static 'image2.jpeg' %}"></td>
+                    </tr>
+                <tr><td style="text-align: center;font-family: fantasy;"><a href="{% url 'offregister' %}">OFF-REG-FORM</a></td>
+                    <td style="text-align: center;font-family: fantasy;"><a href="{% url 'roomallotment' %}">ALLOTMENT ENTRY</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'management' %}">MANAGEMENT</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'off_reg_det' %}">REGISTERED DETAILS(off)</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'managementdetails' %}">MANAGEMENT DETAILS(off)</a></td>
+
+              </table>
+            </nav>
+            
+        </center>
+    </body>
+        </html>
+       
+   

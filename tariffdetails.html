@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>tarrif</title>
+    </head>
+    <style>
+        {% load static %}
+        header{
+            background-color:lightslategrey;
+        }
+        nav{
+                display: inline;
+                margin-right: 20px;
+            }
+        img{
+            width: 150px;
+            height: 100px;
+            padding: 10px;
+            border-radius: 600px;
+        }
+        body
+        {
+            background-image: url("{% static 'img2.jpg' %}");
+        }
+             </style>
+    <body>
+        <center>
+            <header><h1>TARRIF DETAILS</h1></header></center>
+            <button style="background-color:lavenderblush;"><a href="{% url 'dashboard' %}">BACK</a></button>
+            <center>
+                    <table class="tar">
+                    <tr><td><img src="{% static 'propic.jpg' %}"></td>
+
+                        <td><img src="{% static 'tarriff.jpg' %}"></td>
+                        <td><img src="{% static 'bookimg.jpg' %}"></td>
+
+                    <tr><td style="text-align: center;font-family: fantasy;"><a href="{% url 'gallery' %}">GALLERY</a></td>
+
+                        <td style="text-align: center;font-family: fantasy;"><a href="{% url 'tariffdetails' %}">TARRIF</a></td>
+                        <td style="text-align: center;font-family: fantasy;"><a href="{% url 'booking' %}">BOOKING</a></td>
+                        </table><hr><br>
+
+               <table border="10"  cellpadding="30px" align="center">
+                   <thead>
+                <tr>
+                    <td colspan="8">
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>Room Type</th>
+                    <th>AC/Non-AC</th>
+                    <th>Total Rooms</th>
+                    <th>Booked Rooms</th>
+                    <th>Available Rooms</th>
+                    <th>Price per Month</th>
+                    <th>Food Cost</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+                   <tbody>
+                   {% for x in tariff %}
+                   <tr>
+                       <td>{{x.room_type}}</td>
+                        <td>{{x.ac_nonac}}</td>
+                        <td>{{x.total_rooms}}</td>
+                        <td>{{x.booked_rooms}}</td>
+                        <td>{{x.available_rooms}}</td>
+                        <td>{{x.price_per_month}}</td>
+                        <td>{{x.food_cost}}</td>
+                        <td>{{x.total_price}}</td>
+                   </tr>
+                   {% endfor %}
+                   </tbody>
+               </table>
+            </center>
+
+    </body>
+    </html>

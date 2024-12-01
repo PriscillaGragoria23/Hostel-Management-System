@@ -1,0 +1,72 @@
+<head>
+    <style>
+        {% load static %}
+        h1{
+            background-color: lightsalmon;
+        }
+        nav ul li{
+            display: inline;
+            margin-right: 20px;
+        }
+        nav table td {
+                padding: 0 20px; /* Adds 20px padding to the left and right of each menu item */
+                text-align: center;
+                font-family: fantasy;
+            }
+        body{
+            background-image: url("{% static '/adminbk.jpg' %}");
+        }
+        
+     </style>
+</head>
+<body>
+<center>
+    <header>
+     <h1>ALLOTMENT ENTRY</h1>
+    </header>
+    <nav>
+            <table>
+
+                <tr><td style="text-align: center;font-family: fantasy;"><a href="{% url 'offregister' %}">OFF-REG-FORM</a></td>
+
+                    <td style="text-align: center;font-family: fantasy;"><a href="{% url 'roomallotment' %}">ALLOTMENT ENTRY</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'management' %}">MANAGEMENT</a></td>
+                 <td style="text-align: center;font-family: fantasy;"><a href="{% url 'off_reg_det' %}">REGISTERED DETAILS(off)</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'managementdetails' %}">MANAGEMENT DETAILS(off)</a></td></tr>
+              </table>
+            </nav>
+    <button style="background-color:lavenderblush;">
+        <a href="{% url 'offlinebooking' %}">BACK</a>
+</center><hr>
+        <form method="post">
+    {% csrf_token %}
+        <center>
+
+            <table>
+                <tr>
+                    <td>ROOM.NO</td>
+                    <td><input type="number" id="roomno" name="roomno"></td>
+                </tr>
+                <tr>
+                    <td>CLIENT NAME</td>
+                    <td><input type="text" id="client" name="client"></td>
+                </tr>
+                <tr>
+                    <td>ROOMTYPE</td>
+                    <td><select id="roomtype" name="roomtype">
+                        <option value="single">SINGLE</option>
+                        <option value="DOUBLE">DOUBLE</option>
+                        <option value="triple">TRIPLE</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td>ROOM NATURE</td>
+                    <td><select id="roomnature" name="roomnature">
+                        <option value="AC">AC</option>
+                        <option value="NON-AC">NONAC</option>
+                    </td>
+                </tr>
+            </table><br><br>
+            <input type="submit"required>
+            <input type="reset"></center>
+        </form>

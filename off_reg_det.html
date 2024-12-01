@@ -1,0 +1,90 @@
+<html>
+<head>
+        <style>
+               {% load static %}
+            h1 {
+                background-color: lightsalmon;
+            }
+            nav  {
+                display: inline;
+                margin-right: 50px;
+
+            }
+            nav table td {
+                padding: 0 20px; /* Adds 20px padding to the left and right of each menu item */
+                text-align: center;
+                font-family: fantasy;
+            }
+            body {
+                background-image: url("{% static 'adminbk.jpg' %}");
+            }
+
+        </style>
+    </head>
+<body>
+<center>
+    <header>
+     <h1>OFFLINE REGISTERED DETAILS</h1>
+    </header>
+    <nav>
+            <table>
+
+                <tr><td style="text-align: center;font-family: fantasy;"><a href="{% url 'offregister' %}">OFF-REG-FORM</a></td>
+
+                    <td style="text-align: center;font-family: fantasy;"><a href="{% url 'roomallotment' %}">ALLOTMENT ENTRY</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'management' %}">MANAGEMENT</a></td>
+                 <td style="text-align: center;font-family: fantasy;"><a href="{% url 'off_reg_det' %}">REGISTERED DETAILS(off)</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'managementdetails' %}">MANAGEMENT DETAILS(off)</a></td></tr>
+              </table>
+            </nav><BR>
+    <button style="background-color:lavenderblush;">
+        <a href="{% url 'offlinebooking' %}">BACK</a>
+    </button></center><hr>
+<table border="10"  cellpadding="30px" align="center">
+    <thead>
+    <tr>
+        <td>Reg.no</td>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Father</td>
+        <td>Occupation</td>
+        <td>Mobile</td>
+        <td>Email</td>
+        <td>Purpose of stay</td>
+        <td>Stay period</td>
+        <td>Date of Joining</td>
+        <td>Rooms</td>
+        <td>Food</td>
+        <td>Ac</td>
+        <td>Proof</td>
+        <td>Id num</td>
+        <td>Amt</td>
+        <td>Mode</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for x in offline %}
+    <tr>
+        <td>{{x.offreg}}</td>
+        <td>{{x.offname}}</td>
+        <td>{{x.offage}}</td>
+        <td>{{x.father}}</td>
+        <td>{{x.occupation}}</td>
+        <td>{{x.mobile}}</td>
+        <td>{{x.off_email}}</td>
+        <td>{{x.p_o_stayy}}</td>
+        <td>{{x.stay_period}}</td>
+        <td>{{x.date_of_join}}</td>
+        <td>{{x.rooms}}</td>
+        <td>{{x.food}}</td>
+        <td>{{x.ac}}</td>
+        <td>{{x.PROOF}}</td>
+        <td>{{x.idnum}}</td>
+        <td>{{x.amt}}</td>
+        <td>{{x.mode}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Gallery</title>
+    <style>
+        {% load static %}
+        h1 {
+            background-color: lightsalmon;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        img {
+            width: 150px;
+            height: 100px;
+            padding: 10px;
+            border-radius: 600px;
+        }
+        header {
+            background-color: lightslategrey;
+        }
+        body {
+            background-image: url("{% static 'img2.jpg' %}");
+        }
+        .gallery {
+            margin: 20px auto;
+            width: 80%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .gallery img {
+            max-width: 150px;
+            max-height: 100px;
+            margin: 10px;
+            border: 5px solid #ccc;
+            border-radius: 10px;
+        }
+        .gallery table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .gallery th, .gallery td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <header>
+            <h1 style="font-family:'Times New Roman', Times, serif;">OUR GALLERY</h1>
+        </header>
+    </center>
+    <button style="background-color:lavenderblush;">
+        <a href="{% url 'dashboard' %}">BACK</a>
+    </button>
+    <center>
+        <nav>
+            <table>
+                <tr>
+                    <td><img src="{% static 'propic.jpg' %}"></td>
+                    <td><img src="{% static 'tarriff.jpg' %}"></td>
+                    <td><img src="{% static 'bookimg.jpg' %}"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center; font-family: fantasy;"><a href="{% url 'gallery' %}">GALLERY</a></td>
+                    <td style="text-align: center; font-family: fantasy;"><a href="{% url 'tariffdetails' %}">TARIFF</a></td>
+                    <td style="text-align: center; font-family: fantasy;"><a href="{% url 'booking' %}">BOOKING</a></td>
+                </tr>
+            </table>
+        </nav>
+    </center>
+    <hr>
+    <div class="gallery">
+        <table>
+            <thead>
+                <tr>
+                    <th>Image 1</th>
+                    <th>Image 2</th>
+                    <th>Image 3</th>
+                    <th>Image 4</th>
+                    <th>Video</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in gallery %}
+                <tr>
+                    <td><img src="{{ item.img1.url }}" alt="img1"></td>
+                    <td><img src="{{ item.img2.url }}" alt="img2"></td>
+                    <td><img src="{{ item.img3.url }}" alt="img3"></td>
+                    <td><img src="{{ item.img4.url }}" alt="img4"></td>
+                    <td><a href="{{ item.video.url }}" download>Download Video</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

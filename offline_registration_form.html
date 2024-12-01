@@ -1,0 +1,117 @@
+<head>
+    <style>
+        {% load static %}
+        h1{
+            background-color: lightsalmon;
+        }
+        nav {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav table td {
+                padding: 0 20px; /* Adds 20px padding to the left and right of each menu item */
+                text-align: center;
+                font-family: fantasy;
+            }
+
+        body{
+            background-image: url("{% static '/adminbk.jpg' %}");
+        }
+        
+     </style>
+</head>
+<body> 
+    <center><header>
+        
+        <h1>OFFLINE REGISTRATION FORM</h1>
+            </header>
+        <nav>
+            <table>
+
+                <tr><td style="text-align: center;font-family: fantasy;"><a href="{% url 'offregister' %}">OFF-REG-FORM</a></td>
+
+                    <td style="text-align: center;font-family: fantasy;"><a href="{% url 'roomallotment' %}">ALLOTMENT ENTRY</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'management' %}">MANAGEMENT</a></td>
+                 <td style="text-align: center;font-family: fantasy;"><a href="{% url 'off_reg_det' %}">REGISTERED DETAILS(off)</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'managementdetails' %}">MANAGEMENT DETAILS(off)</a></td></tr>
+              </table>
+            </nav>
+            </center><button style="background-color:lavenderblush;"><a href="{% url 'offlinebooking' %}">BACK</a></button>
+    <hr>
+    <center>
+         <form method= "POST">
+             {% csrf_token %}
+        
+        <table>
+            <thead ><u>PERSONAL DETAILS</u></thead>
+            <tr><td style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">REGISTRATION NO:</td><td><input type="number" name="offreg"  id="offreg" placeholder="enter number" required></td></tr>
+            <tr><td style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">NAME:</td><td><input type="text" name="offname" id="offname" placeholder="enter name"required></td></tr>
+            <tr><td style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">AGE:</td><td><input type="number" name="offage" id="offage" placeholder="enter age"required></td></tr>
+            <tr><td style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">FATHER NAME:</td><td><input type="text" name="father" id="father" placeholder="enter father name"required></td></tr>
+            <tr><td style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">OCCUPATION:</td><td><input type="text" name="occupation" id="occupation" placeholder="enter occupation"required></td></tr>
+            <tr><td style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">MOBILE:</td><td><input type="" name="mobile" id="mobile" placeholder="enter mobile number"required></td></tr>
+            <tr><td style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">EMAIL:</td><td><input type="email" name="off_email" id="off_email" placeholder="enter mail-id"required></td></tr>
+            <tr><td style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">PURPOSE OF STAY:</td><td><input type="text" name="p_o_stayy" id="p_o_stayy" placeholder="enter the purpose of hostel stay"></td></tr>
+            <tr><td style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">STAY PERIOD:</td>
+                <td>
+                    <select name="stay_period" id="stay_period">
+                    <option value="-Select-">-Select-</option>
+                    <option value="day">Day</option>
+                    <option value="month">Month</option>
+                    <option value="year">Year</option></select>
+
+                </td>
+            </tr>
+            <tr><td style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">DATE OF JOINING:</td><td><input type="date" name="date_of_join" id="date_of_join" required></td></tr>
+            
+
+            <tr><td style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">ROOMS:</td>
+                <td>
+                    <select name="rooms" id="rooms" required>
+                    <option value="-Select-">-Select-</option>
+                    <option value="single">Single</option>
+                    <option value="double">Double</option>
+                    <option value="four">Four Bed</option>
+                    <option value="five">Five Bed</option></select>
+
+                </td>
+            </tr>
+            <tr><td style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">FOOD:</td><td><select name="food" id="food" required>
+                <option value="-Select-">-Select-</option>
+                <option value="veg">Veg</option>
+                <option value="non">Non-Veg</option>
+                <option value="both">Both</option>
+                <option value="noneed">No Need</option>
+                </select></td></tr>
+                <tr><td style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">AC:</td><td><select name="ac" id="ac" required>
+                    <option>Yes</option>
+                    <option>No</option>
+                    </select></td></tr><br><br>
+            </table><br><BR>
+            <table>
+                <thead ><u>PROOF DETAILS</u></thead>
+                <tr><td  style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">NATURE OF PROOF:</td>
+                <td><select name="PROOF" id="PROOF" required>
+                    <option>select</option>
+                    <option>AadharId</option>
+                    <option>PanId</option>
+                    <option>VoterId</option>
+                </select></td></tr>
+                <tr><td  style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">ID-NUMBER:</td>
+                    <td><input type="number" name="idnum"  id="idnum" placeholder="if aadhar-5678 3456 3421"required></td></tr>
+            </table><BR></BR>
+            <table>
+                <thead ><u>PAYMENT DETAILS</u></thead>
+                <tr><td style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">AMOUNT TO BE PAY:</td><td><input type="input" name="amt"  id="amt" placeholder="enter amount"></td></tr>
+                <tr><td style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">PAYMENT MODE:</td><td><select name="mode" id="mode">
+                                <option value="select">--select--</option>
+                                <option value="cash">cash</option>
+                                <option value="creditcard">card</option>
+                                <option value="gpay">phonepay/gpay/paytm</option>
+                                </select></td></tr></center>
+            </table><br><BR>
+
+        <center><input type="submit"required>
+        <input type="reset"></center>
+    </form></center>
+</body>

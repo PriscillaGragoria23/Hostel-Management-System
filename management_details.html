@@ -1,0 +1,89 @@
+<html>
+<head>
+        <style>
+               {% load static %}
+            h1 {
+                background-color: lightsalmon;
+            }
+            nav  {
+                display: inline;
+                margin-right: 50px;
+
+            }
+            nav table td {
+                padding: 0 20px; /* Adds 20px padding to the left and right of each menu item */
+                text-align: center;
+                font-family: fantasy;
+            }
+            body {
+                background-image: url("{% static 'adminbk.jpg' %}");
+            }
+
+        </style>
+    </head>
+<body>
+<center>
+    <header>
+     <h1>OFFLINE MANAGEMENT DETAILS</h1>
+    </header>
+    <nav>
+            <table>
+
+                <tr><td style="text-align: center;font-family: fantasy;"><a href="{% url 'offregister' %}">OFF-REG-FORM</a></td>
+
+                    <td style="text-align: center;font-family: fantasy;"><a href="{% url 'roomallotment' %}">ALLOTMENT ENTRY</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'management' %}">MANAGEMENT</a></td>
+                 <td style="text-align: center;font-family: fantasy;"><a href="{% url 'off_reg_det' %}">REGISTERED DETAILS(off)</a></td>
+                <td style="text-align: center;font-family: fantasy;"><a href="{% url 'managementdetails' %}">MANAGEMENT DETAILS(off)</a></td>
+</tr>
+              </table>
+            </nav><BR>
+    <button style="background-color:lavenderblush;">
+        <a href="{% url 'offlinebooking' %}">BACK</a></button>
+</center><hr>
+<table border="10"  cellpadding="30px" align="center">
+    <thead>
+          <h3 align="center"><B><u>INVENTORY</u></B></h3>
+    <tr>
+        <td>Room.no</td>
+        <td>Particulars</td>
+        <td>No.of.Items</td>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for x in management %}
+    <tr>
+        <td>{{x.room_num}}</td>
+        <td>{{x.things}}</td>
+        <td>{{x.number_of_items}}</td>
+
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table><br><br>
+<table border="10"  cellpadding="30px" align="center">
+    <thead>
+         <h3 align="center"><b><u>ACCOUNTS</u></b></h3>
+    <tr>
+        <td>Collection</td>
+        <td>Expenses</td>
+        <td>Income</td>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for x in account %}
+    <tr>
+        <td>{{x.collection}}</td>
+        <td>{{x.expenses}}</td>
+        <td>{{x.income}}</td>
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

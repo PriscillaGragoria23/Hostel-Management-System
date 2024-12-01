@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            h1 {
+                background-color: lightsalmon;
+            }
+            nav  {
+                display: inline;
+                margin-right: 50px;
+            }
+            nav table td {
+                padding: 0 20px; /* Adds 20px padding to the left and right of each menu item */
+                text-align: center;
+                font-family: fantasy;
+            }
+            body {
+                background-image: url("/static/adminbk.jpg");
+            }
+            .section-title {
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                font-size: 24px;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <center>
+            <header>
+                <h1>INVENTORY AND ACCOUNTS</h1>
+            </header>
+            <nav>
+                <table>
+                    <tr>
+                        <td style="text-align: center;font-family: fantasy;"><a href="/offregister/">OFF-REG-FORM</a></td>
+                        <td style="text-align: center;font-family: fantasy;"><a href="/roomallotment/">ALLOTMENT ENTRY</a></td>
+                        <td style="text-align: center;font-family: fantasy;"><a href="/management/">MANAGEMENT</a></td>
+                        <td style="text-align: center;font-family: fantasy;"><a href="/offline_reg_det/">REGISTERED DETAILS(off)</a></td>
+                        <td style="text-align: center;font-family: fantasy;"><a href="{% url 'managementdetails' %}">MANAGEMENT DETAILS(off)</a></td>
+                    </tr>
+                </table>
+            </nav>
+        </center>
+        <button style="background-color:lavenderblush;"><a href="{% url 'offlinebooking' %}">BACK</a></button>
+
+        <!-- Inventory Form Section -->
+        <div id="inventory-form">
+            <center>
+                <h2 class="section-title">Inventory Form</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Particulars</th>
+                                <th>No. of items</th>
+                                <th>Room no.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <select name="things" id="things">
+                                        <option>Chair</option>
+                                        <option>Table</option>
+                                        <option>Fan</option>
+                                        <option>AC</option>
+                                        <option>Washing Machine</option>
+                                    </select>
+                                </td>
+                                <td><input type="number" name="number_of_items" id="number_of_items" placeholder="Enter number"></td>
+                                <td><input type="number" name="room_num" id="room_num"  placeholder="Enter number" ></td>
+                            </tr>
+                        </tbody>
+                    </table><br>
+
+
+            </center>
+        </div>
+
+        <!-- Accounts Section -->
+        <div id="accounts">
+            <center>
+                <h2 class="section-title">Accounts</h2>
+
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>DAILY COLLECTION:</td>
+                                <td><input type="number" id="collection" name="collection" placeholder="Enter number"></td>
+                            </tr>
+                            <tr>
+                                <td>EXPENSES:</td>
+                                <td><input type="number" id="expenses" name="expenses" placeholder="Enter number"></td>
+                            </tr>
+                            <tr>
+                                <td>INCOME:</td>
+                                <td><input type="number" id="income" name="income" placeholder="Enter number"></td>
+                            </tr>
+                        </tbody>
+                    </table><br>
+                    <input type="submit" value="Submit">
+                    <input type="reset" value="Reset">
+                </form>
+            </center>
+        </div>
+    </body>
+</html>
